@@ -516,6 +516,10 @@ return arrOfLetters.sort((a,b) => b[1] - a[1]).map((element) => element[0]);
 
 }
 
+export function commonLettersInOrder (msg) {
+    return lettersInOrder(findCommonLetters(msg));
+}
+
 
 export function lettersInOrderOfWikipediaSvenska () {
     return lettersInOrder(findCommonLetters(text));

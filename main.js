@@ -1,4 +1,4 @@
-import { caesarEncrypt, caesarDecrypt } from "./diycrypto.js"
-import { lettersInOrderOfWikipediaSvenska } from "./commonLetter.js"
+import { autoDecrypt } from "./autodecrypter.js"
+const answer = document.getElementById("answer");
 
-console.log(lettersInOrderOfWikipediaSvenska());
+answer.innerHTML = autoDecrypt(prompt("Vad är det enkrypterade medelandet?"));

@@ -1,7 +1,7 @@
-const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","å","ä","ö"," "];
+export const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","å","ä","ö"," "];
 
 
-function letToNum (message){
+export function letToNum (message){
 
     return message.split("").map((char) => {
         return letters.findIndex((letter) => char.toLowerCase() === letter);
@@ -12,10 +12,12 @@ function returnCesarNumbers(message,modifier){
     
 
     return letToNum(message).map((value) => {
-        if(value + modifier < letters.length)
+        if(value + modifier < letters.length && value + modifier >= 0)
             return value + modifier;
-        else return value + modifier -letters.length;
-     
+        else if(value + modifier >= letters.length) 
+            return value + modifier - letters.length;
+        else
+            return value + modifier + letters.length;
             
     });    
 
