@@ -1,20 +1,23 @@
-const secretMessage = "hejsan"
-
-const letters = ["a","b","c","d","e","f","g","h","i","j","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","å","ä","ö"];
-
-let ceasarNumbers = [];
+const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","å","ä","ö"," "];
 
 
 function letToNum (message){
 
     return message.split("").map((char) => {
-        return letters.findIndex((letter) => char === letter);
+        return letters.findIndex((letter) => char.toLowerCase() === letter);
     });
 }
 
 function returnCesarNumbers(message,modifier){
- 
-    return letToNum(message).map((value) => value += modifier);    
+    
+
+    return letToNum(message).map((value) => {
+        if(value + modifier < letters.length)
+            return value + modifier;
+        else return value + modifier -letters.length;
+     
+            
+    });    
 
 }
 
@@ -23,10 +26,10 @@ function numToLet (arr) {
 }
 
 
-console.log(numToLet(returnCesarNumbers(secretMessage,3)));
+function caesarEncrypt (message, shift) {
+    return numToLet(returnCesarNumbers(message,shift)).join("");
+}
 
-
-    
-
-
-
+function caesarDecrypt(encryptedMessage, shift) {
+    return caesarEncrypt(encryptedMessage,-shift);
+}
