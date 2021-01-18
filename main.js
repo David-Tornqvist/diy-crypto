@@ -1,4 +1,4 @@
 import { caesarEncrypt, caesarDecrypt } from "./diycrypto.js"
+import { lettersInOrderOfWikipediaSvenska } from "./commonLetter.js"
 
-console.log(caesarEncrypt("hejsan",3));
-console.log(caesarDecrypt(caesarEncrypt("hejsan",3),3));
+console.log(lettersInOrderOfWikipediaSvenska());
